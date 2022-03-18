@@ -1,3 +1,6 @@
+########################################################################
+## This class is used to find and open COM ports connected to FTDIs   ##
+########################################################################
 import serial
 from serial.tools import list_ports
 
