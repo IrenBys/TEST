@@ -1,10 +1,11 @@
 # TEST
-The public API was created by Visual Studio with the following features:
--	Setting the number of COM port to interact with USART
--	Setting the baud rate 
--	Window for data array transfer 
--	Window for data array receive.
 
-Software module to receive and send messages between two USART hardware blocks was created for STM32F407VG Discovery Kit by Keil µVision.
+The project is created to receive and transmit messages between two USART blocks. 
+This is implemented for the STM32F407VG Discovery Kit using the Keil µVision and the STL.
 
-To check functionality, LEDs were initialized in the software module.
+A Python script is developed to test the project performance:
+ - looking for a com port to which ftdi is connected
+ - opens this port
+ - asks for a message to be sent
+ - and then receives this message
+This script can be run by 'python -B port.py' command for Windows
