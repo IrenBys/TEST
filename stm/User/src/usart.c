@@ -4,17 +4,17 @@ pFIFO_s pUartRxFIFO = NULL;			// pointer to FIFO struct for RX_UART
 pFIFO_s pUartTxFIFO = NULL;			// pointer to FIFO struct for TX_UART
 
 //-------------------------------------------------------------------------------------------------------------
-//Rx mode for USART1
-void USART1_IRQHandler(void)
+//Rx mode for USART3
+void USART3_IRQHandler(void)
 {
 	UCHAR *Buf;
 	UINT i = 0;
 	
-	if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET) 		
+	if(USART_GetITStatus(USART3, USART_IT_RXNE) == SET) 		
 	{
 		
-		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-		Buf[i] = USART_ReceiveData(USART1);
+		USART_ClearITPendingBit(USART3, USART_IT_RXNE);
+		Buf[i] = USART_ReceiveData(USART3);
 		if (FifoSetByteToFIFO(pUartRxFIFO, *Buf) == TRUE)
 		{
 			LED_RED_ON;
