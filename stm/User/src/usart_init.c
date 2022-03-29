@@ -1,6 +1,25 @@
+/**
+  ******************************************************************************
+  * @file    usart_init.c
+  * @author  Irina Bystrova
+  * @brief   This file provides functions to manage the following 
+  *          functionalities:           
+  *           + Initialize USART2 and USART3 modules
+  *           + Initialize LEDs
+  ******************************************************************************
+  */
+	
+/* Includes ------------------------------------------------------------------*/
+
 #include "usart_init.h"
 
-//------------------------------------------------------------------------------------------------------
+/* Functions -----------------------------------------------------------------*/
+
+/**
+  * @brief  Initializes USART2 and USART3 modules
+  * @param  None
+  * @retval None
+  */
 void USART_init(void)
 {
 	//init
@@ -62,8 +81,13 @@ void USART_init(void)
 	NVIC_EnableIRQ(USART2_IRQn); 																
 	NVIC_EnableIRQ(USART3_IRQn); 	
 }
-//------------------------------------------------------------------------------------------------------
-// initializes LEDs
+
+
+/**
+  * @brief  Initializes LEDs
+  * @param  None
+  * @retval None
+  */
 void LED_ini(void)
 {
 	GPIO_InitTypeDef GPIO_struct_LED;  

@@ -1,8 +1,24 @@
+/**
+  ******************************************************************************
+  * @file    FIFO.h
+  * @author  Irina Bystrova
+  * @brief   This file contains all the functions prototypes for the FIFO.
+  ******************************************************************************
+  */
+/* Define to prevent recursive inclusion -------------------------------------*/
+
 #ifndef _FIFO_H_
 #define _FIFO_H_
-//--------------------------------------------------------------------------------------------------------------
+
+/* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
-//--------------------------------------------------------------------------------------------------------------
+
+/* Exported types ------------------------------------------------------------*/
+
+/** 
+  * @brief  FIFO buffer structure  
+  */
 typedef struct _FIFO_s
 { 
 	UINT 	 Head,
@@ -11,7 +27,9 @@ typedef struct _FIFO_s
   UCHAR *Data;
 	
 }FIFO_s, *pFIFO_s;
-//--------------------------------------------------------------------------------------------------------------
+
+/* Exported functions --------------------------------------------------------*/
+
 pFIFO_s FifoCreateFIFO(UINT Max);
 void FifoDeleteFIFO(pFIFO_s Point);
 BOOL FifoCreatePairFIFO(pFIFO_s *inPoint, UINT inMax, pFIFO_s *outPoint, UINT outMax);
@@ -26,4 +44,4 @@ UINT FifoKeyhitFIFO(pFIFO_s Point);
 UINT FifoPointPlus(UINT p, UINT max);
 BOOL FifoFIFO2FIFO(pFIFO_s inPoint, pFIFO_s outPoint);
 
-#endif 
+#endif /*_FIFO_H_ */
