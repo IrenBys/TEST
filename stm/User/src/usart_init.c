@@ -53,7 +53,7 @@ void USART_init(void)
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2); 	// TX USART2 pin config
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2); 	// RX USART2 pin config
 	GPIO_PinAFConfig(GPIOD, GPIO_PinSource8, GPIO_AF_USART3); 	// TX USART3 pin config
-	GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_USART3); 	// TX USART3 pin config
+	GPIO_PinAFConfig(GPIOD, GPIO_PinSource9, GPIO_AF_USART3); 	// RX USART3 pin config
 	
 	// init USART2
 	USART2_struct.USART_BaudRate 						= BAUD_RATE; 											

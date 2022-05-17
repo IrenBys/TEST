@@ -16,8 +16,8 @@
 
 /* Variables ----------------------------------------------------------------*/
 
-pFIFO_s pUartRxFIFO;			// pointer to FIFO struct for RX_UART
-pFIFO_s pUartTxFIFO;			// pointer to FIFO struct for TX_UART
+pFIFO_s pUartRxFIFO = NULL;			// pointer to FIFO struct for RX_UART
+pFIFO_s pUartTxFIFO = NULL;			// pointer to FIFO struct for TX_UART
 
 /* Functions -----------------------------------------------------------------*/
 
@@ -26,22 +26,22 @@ pFIFO_s pUartTxFIFO;			// pointer to FIFO struct for TX_UART
   * @param  None
   * @retval None
   */
-void USART3_IRQHandler(void)
+/*void USART3_IRQHandler(void)
 {
 	UCHAR *Buf;
-	UINT i = 0;
+	UINT i = 0, Len;
 	
 	if(USART_GetITStatus(USART3, USART_IT_RXNE) == SET) 		
-	{
-		
-		USART_ClearITPendingBit(USART3, USART_IT_RXNE);
-		Buf[i] = USART_ReceiveData(USART3);
-		if (FifoSetByteToFIFO(pUartRxFIFO, *Buf) == TRUE)
+	{		
+		LED_BLUE_ON;
+		USART_ClearITPendingBit(USART3, USART_IT_RXNE);		
+		if (FifoSetNBytesToFIFO(pUartRxFIFO, Buf, Len) == TRUE)
 		{
+			Buf[i] = USART_ReceiveData(USART3);
 			LED_RED_ON;
 		}	
 	}		
-}
+}*/
 
 /**
   * @brief  USART2 Handler provides transmite mode
@@ -51,8 +51,8 @@ void USART3_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
 	UCHAR *Buf;
-	UINT len = 0;
-	UINT i = 0;
+	UINT len;
+	UINT i;
 
 	if(USART_GetITStatus(USART2, USART_IT_TXE) == SET) 		
 	{
@@ -69,6 +69,21 @@ void USART2_IRQHandler(void)
 			LED_GREEN_OFF;
 		}		
 	}
+	
+	if(USART_GetITStatus(USART2, USART_IT_RXNE) == SET) 		
+	{		
+		LED_BLUE_ON;
+		USART_ClearITPendingBit(USART2, USART_IT_RXNE);		
+		if (FifoSetNBytesToFIFO(pUartRxFIFO, Buf, len))
+		{
+			for(i = 0; i < len; i++)
+			{
+			    Buf[i] = USART_ReceiveData(USART2);
+				  LED_RED_ON;			
+			}
+
+		}	
+	}	
 }
 
 /**
@@ -90,6 +105,8 @@ void UartTransmite(void)
 		}  
 	}		
 }
+
+
 
 
 

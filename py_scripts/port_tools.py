@@ -3,6 +3,7 @@
 ########################################################################
 import serial
 from serial.tools import list_ports
+import logging
 
 
 class tools:
@@ -16,7 +17,7 @@ class tools:
                 self.ftdi_ports.append(port.device)
         # if no one FTDI device was found                                                      
         if not self.ftdi_ports:
-            print("Couldn't find any FTDI port") 
+            logging.warning("Couldn't find any FTDI port") 
             return None  
         return self.ftdi_ports
     
@@ -40,9 +41,9 @@ class tools:
                     # add opened port to the list 
                     serial_list.append(serial_port)
                     print(f"The {serial_port.port} is opened!")
-                    return serial_list 
+                return serial_list 
 
             except serial.SerialException as e:
-                print(e)
+                logging.error(e)
                 
         return None

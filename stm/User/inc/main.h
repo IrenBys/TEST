@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "Types.h"
 #include "FIFO.h"
+#include "init.h"
 #include "usart_init.h"
 
 /* Defines ------------------------------------------------------------------*/

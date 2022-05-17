@@ -3,6 +3,7 @@
 ########################################################################
 import sys
 from port_tools import tools
+import logging
 
 
 def main():
@@ -22,11 +23,11 @@ def main():
                 print(receive_data.decode("utf-8"))
                 return 0                 
         if not receive_data:
-            print("Couldn't find data for reading")
+            logging.warning("Couldn't find data for reading")
             return 1                
 
     else:
-        print("Couldn't write/receive a message")
+        logging.warning("Couldn't write/receive a message")
         return 1  
 
 
