@@ -16,23 +16,19 @@
 
 /* Exported defines ----------------------------------------------------------*/
 
-#define LED_GREEN_ON GPIO_SetBits(GPIOD, GPIO_Pin_12)
-#define LED_GREEN_OFF GPIO_ResetBits(GPIOD, GPIO_Pin_12)
+#define LED_GREEN_ON    GPIO_SetBits(GPIOD, GPIO_Pin_12)
+#define LED_GREEN_OFF   GPIO_ResetBits(GPIOD, GPIO_Pin_12)
 
-#define LED_ORANGE_ON GPIO_SetBits(GPIOD, GPIO_Pin_13)
-#define LED_ORANGE_OFF GPIO_ResetBits(GPIOD, GPIO_Pin_13)
+#define LED_ORANGE_ON   GPIO_SetBits(GPIOD, GPIO_Pin_13)
+#define LED_ORANGE_OFF  GPIO_ResetBits(GPIOD, GPIO_Pin_13)
 
-#define LED_RED_ON GPIO_SetBits(GPIOD, GPIO_Pin_14)
-#define LED_RED_OFF GPIO_ResetBits(GPIOD, GPIO_Pin_14)
+#define LED_RED_ON      GPIO_SetBits(GPIOD, GPIO_Pin_14)
+#define LED_RED_OFF     GPIO_ResetBits(GPIOD, GPIO_Pin_14)
 
-#define LED_BLUE_ON GPIO_SetBits(GPIOD, GPIO_Pin_15)
-#define LED_BLUE_OFF GPIO_ResetBits(GPIOD, GPIO_Pin_15)
+#define LED_BLUE_ON     GPIO_SetBits(GPIOD, GPIO_Pin_15)
+#define LED_BLUE_OFF    GPIO_ResetBits(GPIOD, GPIO_Pin_15)
 
-#define BUTTON_READ GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0)
-
-#define DWT_CYCCNT    *(volatile unsigned long *)0xE0001004
-#define DWT_CONTROL   *(volatile unsigned long *)0xE0001000
-#define SCB_DEMCR     *(volatile unsigned long *)0xE000EDFC
+#define BUTTON_READ     GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0)
 
 /* Exported functions --------------------------------------------------------*/
 
